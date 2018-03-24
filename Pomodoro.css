@@ -1,0 +1,104 @@
+body {
+  background-image: url(https://s20.postimg.org/vv9f2spbx/vintage-concrete-min.png);
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  color: #886451;
+  text-shadow: 1px 1px 1px #000;
+}
+
+
+svg {
+   -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.center{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  height: 500px;
+  width: 500px;
+}
+
+.ring, .ring h2, .adjustTitle, .resetButton, .plus, .minus{
+    cursor: pointer;
+    position: absolute;
+}
+
+.ring h2 {
+  font-size: 70px;
+    text-align:center;
+    line-height: 190px;
+    width: 100%;
+    color: #886451;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.circle_animation {
+  stroke-dasharray: 880; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 0; /* allows the circle to start complete */
+  transition: all 1s linear;
+}
+
+.breakTime{
+  bottom: -60px;
+  left: 15%;
+}
+
+.smallBox {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+.adjustTitle {
+  width: 100%;
+  top: 0%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.adjustNumber {
+  padding: 0;
+  margin: 0;
+  width: 100px;
+  text-align: center;
+}
+
+.resetButton {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.workTime{
+  bottom: -60px;
+  right: 15%;
+}
+
+.minus, .plus{
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.minus {
+  left: 0;
+}
+
+.plus {
+  right: 0;
+}
+
+.credit {
+  position: absolute;
+  bottom: 10%;
+  left: 30%
+}

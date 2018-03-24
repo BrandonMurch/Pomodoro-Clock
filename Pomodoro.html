@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+  @description - Pomodoro clock, with the ability to adjust break time and work time.
+  @input - Increasing or decreasing times by GUI.
+  @author - Brandon - Brandon.Murch@protonmail.com
+ -->
+  <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+  <meta content='utf-8' http-equiv='encoding'>
+  <title>Pomodoro Clock</title>
+  <link href='Pomodoro.css' rel='stylesheet'>
+</head>
+<body>
+<div class="container center">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="Pomodoro.js"></script>
+  <div class="ring center" id="ring">
+    <h2 id="bigTimer">25:00</h2>
+                  <!-- circle radius is calculated from the desired circumference -->
+    <svg width="300" height="300">
+      <circle id="circle" class="circle_animation" r="140.0563499" cy="150" cx="150" stroke-width="12" stroke="#886451" fill="none"/>
+    </svg>
+</div>
+  <div class="breakTime smallBox" >
+  <h1 class="adjustTitle" id="toggleBreak">Break</h1>
+  <h1 class="minus" id="breakMinus">-</h1>
+  <h1 class="adjustNumber center" id="breakNumber">5:00</h1>
+  <h1 class="plus" id="breakPlus">+</h1>
+  </div>
+  <div class="resetButton" id="resetButton">
+    <h1>Reset</h1>
+  </div>
+  <div class="workTime smallBox">
+    <h1 class="adjustTitle" id="toggleWork">Work</h1>
+    <h1 class="minus" id="workMinus">-</h1>
+    <h1 class="adjustNumber center" id="workNumber">25:00</h1>
+    <h1 class="plus" id="workPlus">+</h1>
+  </div>
+</div>
+<div class="credit">
+  <p>Created by Brandon Murch</p>
+</div>
+</body>
+</html>
