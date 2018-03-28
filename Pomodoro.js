@@ -19,15 +19,15 @@ let interval, current, breakTime = 300, workTime = 1500;
 const audio = new Audio('Computer_Magic-Microsift-1901299923.mp3');
 
 const bigDisplay = (value) => { // changes html for large display in the center
-  document.getElementById("bigTimer").innerHTML = formatTime(value);
+  document.getElementsByClassName("ring__display")[0].innerHTML = formatTime(value);
 }
 
 const breakDisplay = (value) => {      //changes html for smaller left display
-  document.getElementById("breakNumber").innerHTML = formatTime(value);
+  document.getElementsByClassName("adjustTime__displayNumber--break")[0].innerHTML = formatTime(value);
 }
 
 const workDisplay = (value) => {      //changes html for smaller right display
-  document.getElementById("workNumber").innerHTML = formatTime(value);
+  document.getElementsByClassName("adjustTime__displayNumber--work")[0].innerHTML = formatTime(value);
 }
 
 const formatTime = (timeInSec) => {    // formats time into X:XX:XX
@@ -62,9 +62,8 @@ const initiateTimer = (time, message, circumference) => {
   let i = time;
   interval = setInterval(() => {
       let offset = initialOffset-((i*(initialOffset/time))-(circumference || 0))
-      $('.circle_animation').css('stroke-dashoffset', offset);
+      $('.ring--animate').css('stroke-dashoffset', offset);
       timer.secRemaining = i
-        console.log(offset);
       timer.circumRemaining = offset;
       if (i > 0){
         bigDisplay(formatTime(i));
@@ -96,28 +95,28 @@ const resetTimer = () => {      // resets all default funcitons.
   } else {
       bigDisplay(breakTime);
   }
-  $('.circle_animation').css('stroke-dashoffset', 0);
+  $('.ring--animate').css('stroke-dashoffset', 0);
 }
 
 
                     // a series of listeners for button clicks on each button.
 $(document).ready(function(){
 
-  $(document).on("click","#resetButton",function(){
+  $(document).on("click",".button--reset",function(){
     resetTimer();
   });
 
-  $(document).on("click","#toggleBreak",function(){
+  $(document).on("click",".adjustTime__title--break",function(){
     timer.workTime = false;
     resetTimer();
   });
 
-  $(document).on("click","#toggleWork",function(){
+  $(document).on("click",".adjustTime__title--work",function(){
     timer.workTime = true;
     resetTimer();
   });
 
-  $(document).on("click","#breakPlus",function(){
+  $(document).on("click",".adjustTime__plus--break",function(){
     breakTime += 60;
     breakDisplay(breakTime);
     if (!timer.workTime&& !timer.running){
@@ -125,7 +124,7 @@ $(document).ready(function(){
     }
   });
 
-  $(document).on("click","#breakMinus",function(){
+  $(document).on("click",".adjustTime__minus--break",function(){
     if (breakTime >= 120){
       breakTime -= 60;
       breakDisplay(breakTime);
@@ -135,7 +134,7 @@ $(document).ready(function(){
     }
   });
 
-  $(document).on("click","#workPlus",function(){
+  $(document).on("click",".adjustTime__plus--work",function(){
     workTime += 60;
     workDisplay(workTime);
     if (timer.workTime&& !timer.running){
@@ -143,7 +142,7 @@ $(document).ready(function(){
     }
   });
 
-  $(document).on("click","#workMinus",function(){
+  $(document).on("click",".adjustTime__minus--work",function(){
     if (workTime >= 120){
       workTime -= 60;
       workDisplay(workTime);
@@ -154,7 +153,7 @@ $(document).ready(function(){
   });
 
 
-  $(document).on("click","#ring",function(){
+  $(document).on("click",".ring",function(){
     if (!timer.running){
       timer.running = true;
       if (timer.workTime) {
